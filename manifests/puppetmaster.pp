@@ -65,14 +65,12 @@ class foreman::puppetmaster (
       owner                   => 'puppet',
       group                   => 'puppet',
       selinux_ignore_defaults => true,
-      require                 => Class['::puppet::server::install'],
     }
 
     file { "${puppet_home}/yaml/foreman":
       ensure  => directory,
       owner   => 'puppet',
       group   => 'puppet',
-      require => Class['::puppet::server::install'],
     }
   }
 }
