@@ -56,8 +56,12 @@ class foreman::params {
   # setting to false/true will override this check (e.g. set to false on 1.1)
   $selinux     = undef
 
-  # if enabled, will install and configure the database server on this host
+  # if enabled, will install database server on this host
   $db_manage   = true
+
+  # if enabled, will configure database
+  $db_setup    = true
+
   # Database 'production' settings
   $db_type     = 'postgresql'
   $db_username = 'foreman'

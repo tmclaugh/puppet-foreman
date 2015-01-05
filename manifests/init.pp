@@ -58,7 +58,10 @@
 # $version::                  foreman package version, it's passed to ensure parameter of package resource
 #                             can be set to specific version number, 'latest', 'present' etc.
 #
-# $db_manage::                if enabled, will install and configure the database server on this host
+# $db_manage::                if enabled, will install database server on this host
+#                             type:boolean
+#
+# $db_setup::                 if enabled, will setup database
 #                             type:boolean
 #
 # $db_type::                  Database 'production' type (valid types: mysql/postgresql/sqlite)
@@ -180,6 +183,7 @@ class foreman (
   $gpgcheck                 = $foreman::params::gpgcheck,
   $version                  = $foreman::params::version,
   $db_manage                = $foreman::params::db_manage,
+  $db_setup                 = $foreman::params::db_setup,
   $db_type                  = $foreman::params::db_type,
   $db_adapter               = 'UNSET',
   $db_host                  = 'UNSET',
