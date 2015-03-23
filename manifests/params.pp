@@ -18,6 +18,8 @@ class foreman::params {
   $authentication = true
   # configure foreman via apache and passenger
   $passenger    = true
+  # If module should manage passenger installation.
+  $manage_passenger = true
   # Enclose apache configuration in <VirtualHost>...</VirtualHost>
   $use_vhost    = true
   # Server name of the VirtualHost

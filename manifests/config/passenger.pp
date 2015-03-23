@@ -46,6 +46,7 @@ class foreman::config::passenger(
   $prestart            = $foreman::passenger_prestart,
   $min_instances       = $foreman::passenger_min_instances,
   $start_timeout       = $foreman::passenger_start_timeout,
+  $manage_passenger    = $foreman::manage_passenger
 ) {
   # validate parameter values
   validate_string($listen_on_interface)
@@ -57,7 +58,9 @@ class foreman::config::passenger(
 
   include ::apache
   include ::apache::mod::headers
-  include ::apache::mod::passenger
+  if $manage_passenger == true {
+    include ::apache::mod::passenger
+  }
   Class['::apache'] -> anchor { 'foreman::config::passenger_end': }
 
   # Ensure the Version module is loaded as we need it in the Foreman vhosts

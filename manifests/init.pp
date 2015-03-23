@@ -14,6 +14,9 @@
 # $passenger::                Configure foreman via apache and passenger
 #                             type:boolean
 #
+# $manage_passenger           If module should setup passenger when passeger is enabled.
+#                             type:boolean
+#
 # $passenger_scl::            Software collection name (on RHEL currently 'ruby193', undef on others)
 #                             Deprecated, specify passenger_ruby and passenger_ruby_package instead.
 #
@@ -168,6 +171,7 @@ class foreman (
   $unattended               = $foreman::params::unattended,
   $authentication           = $foreman::params::authentication,
   $passenger                = $foreman::params::passenger,
+  $manage_passenger         = $foreman::params::manage_passenger,
   $passenger_scl            = $foreman::params::passenger_scl,
   $passenger_ruby           = $foreman::params::passenger_ruby,
   $passenger_ruby_package   = $foreman::params::passenger_ruby_package,
